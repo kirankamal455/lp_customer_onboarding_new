@@ -1,0 +1,213 @@
+{
+  "@@locale": "en",
+  "license_error": "License error",
+  "invalid_license": "Invalid license",
+  "ok": "OK",
+  "app_name": "Liveness Check",
+  "email": "Email",
+  "password": "Password",
+  "server": "Server",
+  "login": "Login",
+  "authentication_error": "Authentication error",
+  "authentication_error_description": "Invalid email or password",
+  "liveness": "Check Liveness",
+  "success":  "Liveness verification successful!\nYou are a real person.",
+  "declined": "Could not verify liveness.\nPlease try again",
+  "faild":"Verification Faild",
+  "error":"Oops! Something went wrong!\nPlease try again later",
+   "errordetailed":"We encountered an error and We have notified our engineering team about it.Sorry for the inconvenience caused",
+  "repeat": "Check Again",
+  "canceled": "Liveness verification was canceled.\nPlease try again.",
+  "loadingmessages": "Verification in progress... Please wait.",
+  "initialize": "Initializing verification...",
+  "faceismached": "Face verification is successful.",
+  "facenotmached":"Face verification failed. Faces do not match. Please try again later",
+  "imageselection": "Please Select a Reference Image or ID Card with photo",
+  "facecompareerror":"Face Verification Faild ,Please try again later",
+  "notinternet": "Please check your internet connection and try again later.",
+  "newcustomerbtn": "New Customer Registration",
+  "existingcustomerbtn": "Existing Customer Revalidation",
+   "util_continue_button": "Continue",
+    "welcome_text":"Welcome to a new world of \n Customer Onboarding  experience from \n Lucidplus",
+    "welcome_existing_customer": "Existing Customer",
+    "welcome_new_customer": "New Customer Registration",
+    "welcome_languages": "Languages",
+
+    "modal_tittle": "Select a theme",
+    "modal_subtittle": "Personalise your app with splash of color!",
+     "modal_ok": "OK",
+    "login_title": "Mobile number",
+  "login_subtitle": "We may store and send verification code to this number",
+  
+
+  
+  "description_title": "Mobile banking... a different experience",
+  "description_subtitle":
+      "Lucidplus mobile banking offers a plethora of products and services, that helps you handle money efficiently and effectively to meet financial goals",
+  "description_terms_conditions": "Terms & Conditions",
+  
+
+  
+  "mobile_title": "Provide your mobile number",
+  "mobile_subtitle":
+      "Your mobile number is the unique identity to Banking privileges of Lucidplus Mobile Bank. Let us get started by validating your mobile number",
+  "mobile_validator_msg1": "Please enter mobile number",
+  "mobile_validator_msg2": "Please enter a valid mobile number",
+  
+
+  
+  "otp_title": "Enter the OTP",
+  "otp_subtitle":
+      "We have sent an SMS containing a 6-digit code to your mobile number. Please enter the code below",
+  "otp_description":
+      "Your 6-digit code is on its way. if you have not received it within 1 minute, please tap the link below to resend",
+  "otp_resend": "Resend OTP",
+  
+
+  
+  "name_title": "Enter Personal Details",
+  "name_subtitle":
+      "Please enter your full name as it is shown on your document",
+  "name_first_name": "First name",
+  "name_middle_name": "Middle name(Optional)",
+  "name_last_name": "Last name",
+  "name_validator_firstname_error_msg": "Please enter first name",
+  "name_validator_middlename_error_msg": "Please enter middle name",
+  "name_validator_lastname_error_msg": "Please enter last name",
+  
+
+  
+  "dob_title": "Enter Date of Birth",
+  "dob_subtitle":
+      "To create an Lucidplus Mobile Bank Account, you must be 16 years or older",
+  "dob_text_form": "Date of Birth",
+  "dob_text_form_hint": "DD/MM/YYYY",
+  "dob_validator_error_msg": "Please enter Date of Birth",
+  
+
+  
+  "email_title": "Enter e-mail address",
+  "email_subtitle":
+      "We would like to send you updates about your account by e-mail",
+  "email_text_form": "Personal e-mail ID",
+  "email_description":
+      "We will e-mail you a verification link. Please click the link to verify and activate your e-mail ID to start receiving updates",
+  "email_text_error_msg": "Invalid e-mail id",
+  "email_validator_error_msg": "Please enter e-mail address",
+  "email_validator_error_msg1": "Please enter valid e-mail address",
+  
+  
+  "video_onbording_screen_title": "Record a video",
+  "video_onbording_screen_subtitle": "Thanks,now time for video of you",
+  "video_onbording_screen_icon_desc_label": "The video will be stored securely",
+  "video_onbording_screen_label":
+      "You must focus on the mobile screen to fit your face to the frame.Click start recording and read out the text displayed on screen",
+
+  
+
+  
+  "address_title": "Enter Your Address",
+  "address_subtitle":
+      "Please note that your card will be posted to this address",
+  "address_line_1": "Address line 1",
+  "address_line_2": "Address line 2",
+  "address_city": "City",
+  "address_zipcode": "Zipcode",
+  "address_country": "Country",
+  "address_line1_error_msg": "Please enter address line 1",
+  "address_line2_error_msg": "Please enter address line 2",
+  "address_city_error_msg": "Please enter city",
+  "address_zipcode_error_msg": "Please enter zipcode",
+  "address_country_error_msg": "Please enter country",
+  
+    "ekyc_onbording_screen_title": "Applicant Verification",
+  "ekyc_onbording_screen_subtitle":
+      "Follow the instructions to upload a valid Photo of Your Document and video of yourself",
+  "ekyc_onbording_screen_label":
+      "To make sure its really you, we would like to check your application against a valid photo ID and video of you. This way we can be sure someone isn\"t trying to setup an account in your name",
+
+  
+  
+  "docsOnboarding_title": "Verify your identity",
+  
+"docsOnboarding_profile":
+      "Take a picture of a valid photo ID, to check your personal information is correct",
+  "docsOnboarding_camera":
+      "Record a short video of yourself, to match your face to your ID photo",
+  
+
+  
+  "docsSelect_title": "Please select a document to be uploaded",
+  "docsSelect_subtitle":
+      "Matching your details to a photo ID, lets us check your application quickly",
+  "docsSelect_more_info":
+      "Like your passport, national ID or driving license, checking that:",
+  "docsSelect_pointOne": "it hasn\"t expired",
+  "docsSelect_pointTwo": "it\"s clear and easy to read",
+  "docsSelect_pointThree": "the whole ID is in the picture",
+  "docsSelect_photo_id_label": "Your document photo will be stored securely",
+  "docsSelect_photo_id_label1":
+      "Your document must be valid or have \n expired in the last three months",
+  "docsSelect_photo_id_label2": "Choose the type of document you will upload",
+  "docsSelect_photo_Press_Continue_label":
+      "Press Continue to make a picture of a document  you selected. Page with a Photo to be taken",
+  
+
+  
+  "docsCorner_title": "Check Photo of Your Document image",
+  "docsCorner_subtitle": "Verify image for clarity and completeness",
+  "docsCorner_label":
+      "Are all the writings easy to read and are all four corners visible? Is your face clearly visible in the photo?",
+  
+  "registration_screen_title": "Congratulation",
+  "registration_screen_subtitle": "Your account is created successfully",
+  "registration_screen_label":
+      "You can login to Lucidplus Mobile Bank using your registered mobile number",
+  
+  "registration_screen_title": "Congratulation",
+  "registration_screen_subtitle": "Your account is created successfully",
+  "registration_screen_label":
+      "You can login to Lucidplus Mobile Bank using your registered mobile number",
+      "dialogue_error": "Oops something went wrong. Please try again later",
+  "dialogue_error1": "Card removed successfully",
+  "dialogue_error2": "Account removed successfully",
+  "dialogue_error3":
+      "Please add card or bank account to add money in your eWallet",
+  "dialogue_error4": "Reminder sent successfully",
+  "dialogue_error5": "Request removed successfully",
+  "dialogue_error6": "Request sent successfully",
+  "dialogue_error7": "Selected number is not an Lucidplus bank user",
+  "dialogue_error8": "Selected user has not activated the eWallet",
+  "dialogue_error9": "Recurring payment set successfully",
+  "dialogue_error10": "Please enter your registered Mobile number",
+  "dialogue_error11": "Incorrect OTP entered",
+  "dialogue_error12": "Please contact customer service",
+  "dialogue_error13": "Invalid pin entered",
+  "dialogue_error14": "Old pin and new pin are same. Please try different pin",
+  "dialogue_error15": "Group Created successfully",
+  "dialogue_error16": "vault created successfully",
+  "dialogue_error17": "Amount is exceeding the target amount",
+  "dialogue_error18": "Insufficient funds. Please add money and try again",
+  "dialogue_error19": "No transactions found",
+  "dialogue_error20": "Money added successfully",
+  "dialogue_error21": "Money sent successfully",
+  "dialogue_error22":
+      "Insufficient wallet balance. Please recharge your wallet",
+  "dialogue_error23": "Selected user has not activated the eWallet",
+  "dialogue_error24": "Vault status updated successfully",
+  "dialogue_error25": "Vault status is already updated",
+  "dialogue_error26":
+      "Mobile number already registered. Please try with different number",
+  "dialogue_error27": "Error uploading video. Please try again",
+  "dialogue_error28": "Error uploading document",
+  "dialogue_error29":
+      "Email Id already exists. Please try different e-mail address",
+  "dialogue_error30": "Error updating Address. Please try again later",
+  "dialogue_error31": "Incorrect OTP. please enter a valid OTP",
+  "dialogue_error32": "Scanned or entered bill details not found",
+  "dialogue_error33": "Bill payment completed successfully",
+  "dialogue_error34": "Bill payment failed. Please try again later",
+  "dialogue_error35": "Please select more than one member to create selfa",
+  "dialogue_error36": "Please select members",
+  "dialogue_error37": "pin reset successfully"
+}
