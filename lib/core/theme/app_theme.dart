@@ -159,7 +159,7 @@ class Themes {
       );
 
   static ThemeData get theme => ThemeData(
-        fontFamily: "Roboto",
+        fontFamily: "Poppins",
         primaryColor: voiletPrimary,
         primaryColorLight: pinkAccentPrimary,
         disabledColor: Colors.grey,

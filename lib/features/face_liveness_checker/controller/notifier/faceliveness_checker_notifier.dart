@@ -38,7 +38,6 @@ class FaceLivenessCheckerNotifier extends AutoDisposeFamilyAsyncNotifier<
 
   Future<void> _initializeCamera() async {
     try {
-      
       final instructions = await ref.watch(faceLivenessInstructionPod.future);
       if (instructions.data.isNotEmpty) {
         final cameraController = await ref.watch(cameraControllerPod.future);
@@ -47,7 +46,7 @@ class FaceLivenessCheckerNotifier extends AutoDisposeFamilyAsyncNotifier<
                 (state) => 'video/liveness.mp4',
               );
         } else {
-       final   directory = await getApplicationDocumentsDirectory();
+          final directory = await getApplicationDocumentsDirectory();
           ref.read(videoFilePathPod.notifier).update(
                 (state) => '${directory.path}/liveness_test_video.mp4',
               );
@@ -175,7 +174,7 @@ class FaceLivenessCheckerNotifier extends AutoDisposeFamilyAsyncNotifier<
     try {
       String? compressedVideoPath =
           await _compressVideo(videoPath, instructions);
-       
+
       if (compressedVideoPath == null) {
         state = AsyncData(FacelivenessCheckerErrorState('Compression failed'));
         return;
@@ -248,12 +247,21 @@ class FaceLivenessCheckerNotifier extends AutoDisposeFamilyAsyncNotifier<
             //       (state) => "Uploading Video $percentage %",
             //     );
           },
+          documentImageUrl: arg.documentUploadResponseModel.data.documentUrl,
         );
 
     result.when(
       (success) {
         if (success.Status == true) {
           verifyFace(imagePath: imagePath);
+
+          // if (success.FaceMatch) {
+          //   ref.read(autorouterProvider).replaceAll(
+          //       [RegistrationSuccessRoute(isRegistrationPending: false)]);
+          // } else {
+          //   ref.read(isPop.notifier).state = true;
+          //   state = AsyncData(FacelivenessCheckerFaceNotMatchingState());
+          // }
         } else {
           state = AsyncData(FacelivenessCheckerFaildState(success));
           ref.read(isPop.notifier).state = true;

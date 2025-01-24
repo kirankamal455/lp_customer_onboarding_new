@@ -6,8 +6,9 @@ import 'package:lp_customer_onboarding/features/update_document_btn/state/udate_
 
 class UpdateDocumentBtnView extends ConsumerWidget {
   final Function() submit;
+  final String? label;
 
-  const UpdateDocumentBtnView({super.key, required this.submit});
+  const UpdateDocumentBtnView({required this.submit, this.label, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,7 +30,7 @@ class UpdateDocumentBtnView extends ConsumerWidget {
               InitialUpdateDocumentBtnState() => CustomFosButton(
                   disableButton: false,
                   submit: submit,
-                  label: "Submit",
+                  label: label ?? "Submit",
                   isLoading: false,
                   percent: 0,
                   isLinearLoadingindicator: true,
@@ -45,7 +46,7 @@ class UpdateDocumentBtnView extends ConsumerWidget {
               SubmitUpdateDocumentBtnSuccessState() => CustomFosButton(
                   disableButton: false,
                   submit: submit,
-                  label: "Submit",
+                  label: label ?? "Submit",
                   isLoading: false,
                   percent: 0,
                   isLinearLoadingindicator: true,

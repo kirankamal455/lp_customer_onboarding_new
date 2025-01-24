@@ -69,6 +69,7 @@ abstract class ILoginProvider {
       // required final String randomText,
       // required final bool isEnableRandomText,
       required final String videoPath,
+      required final String documentImageUrl,
       required final String instructionsList,
       required final String processId,
       CancelToken? cancelToken,

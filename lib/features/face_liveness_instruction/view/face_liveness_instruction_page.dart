@@ -19,14 +19,14 @@ class FaceLivenessInstructionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100.withOpacity(1),
       appBar: AppBar(
         title: const Text("Liveness Verification"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // General padding
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.center, // Center align the column
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Gap(30),
             const Text(
@@ -40,9 +40,7 @@ class FaceLivenessInstructionPage extends StatelessWidget {
             ),
             const Gap(30),
             const InstructionCard(),
-            const Spacer(), // Add space between the card and the button
-
-            // Start Button
+            const Spacer(),
             Consumer(
               builder: (_, WidgetRef ref, __) {
                 return ElevatedButton(

@@ -59,10 +59,10 @@ class DocumentAddressField extends StatelessWidget {
                 minLines: 1,
               ),
             ),
-            EditButton(
-              buttonType: 'docaddress',
-              data: address,
-            ),
+            // EditButton(
+            //   buttonType: 'docaddress',
+            //   data: address,
+            // ),
           ],
         );
       },

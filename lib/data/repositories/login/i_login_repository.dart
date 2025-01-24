@@ -95,6 +95,7 @@ abstract class ILoginRepository {
       {
       // required String randomText,
       // required bool isEnableRandomText,
+      required final String documentImageUrl,
       required final String instructionsList,
       required final String processId,
       required String videoPath,

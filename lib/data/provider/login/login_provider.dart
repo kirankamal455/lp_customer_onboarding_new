@@ -279,6 +279,7 @@ class LoginProvider implements ILoginProvider {
       // required final bool isEnableRandomText,
       required final String videoPath,
       CancelToken? cancelToken,
+      required final String documentImageUrl,
       required final String instructionsList,
       required final String processId,
       void Function(int, int)? onSendProgress}) async {
@@ -293,7 +294,7 @@ class LoginProvider implements ILoginProvider {
     });
     print("Instruction is $instructionsList");
     return await dio.post(
-      'https://api.faceonlive.dev-lplusltd.com/FaceLiveDetection/VideoUpload?ProcessId=$processId',
+      '${AppURLs.facelivenesApiBaseUrl}FaceLiveDetection/VideoUpload?ProcessId=$processId&ImageUrl=$documentImageUrl',
       options: Options(headers: headers),
       data: data,
       onSendProgress: onSendProgress,

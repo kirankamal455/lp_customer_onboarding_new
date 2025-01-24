@@ -59,10 +59,13 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
             //     .toList(),
             onSuccess: (documentUploadResponseModel) {
               if (checkDocumentData(documentUploadResponseModel)) {
-                showInfoSnack(
-                    duration: const Duration(seconds: 3),
-                    text:
-                        "It seems the uploaded file is not a valid document. Please upload a clear image");
+                showPopupDialog(
+                  title: '',
+                  description:
+                      "It seems the uploaded file is not a valid document. Please upload a clear image",
+                  dialogType: DialogType.error,
+                  backTimes: 1,
+                );
               } else {
                 DateFormat format = DateFormat('dd/MM/yyyy');
                 if (documentUploadResponseModel.data.expiryDate.isNotEmpty) {
@@ -73,9 +76,13 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
                         documentUploadResponseModel:
                             documentUploadResponseModel));
                   } else {
-                    showInfoSnack(
-                        text:
-                            "Your ${documentType == "PRT" ? "Passport" : documentType == "NID" ? "National ID Card" : "Residence Permit"} has expired. Please upload a valid document.");
+                    showPopupDialog(
+                      title: '',
+                      description:
+                          "Your ${documentType == "PRT" ? "Passport" : documentType == "NID" ? "National ID Card" : "Residence Permit"} has expired. Please upload a valid document.",
+                      dialogType: DialogType.error,
+                      backTimes: 1,
+                    );
                   }
                 } else {
                   ref.read(autorouterProvider).navigate(EditDocumentRoute(
@@ -144,24 +151,24 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
     }
   }
 
-  Future<bool> logout() async {
-    return await showCustomDialog(
-          routerName: 'Exit',
-          context: context,
-          builder: (BuildContext context) => CustomDialog(
-            onTapYesBtn: () async {
-              SystemNavigator.pop();
-            },
-            onTapNoBtn: () {
-              Navigator.pop(context);
-            },
-            subTittle: 'Do you want to Exit?',
-            isTittleVisible: true,
-            tittle: "Are you sure?",
-          ),
-        ) ??
-        false;
-  }
+  // Future<bool> logout() async {
+  //   return await showCustomDialog(
+  //         routerName: 'Exit',
+  //         context: context,
+  //         builder: (BuildContext context) => CustomDialog(
+  //           onTapYesBtn: () async {
+  //             SystemNavigator.pop();
+  //           },
+  //           onTapNoBtn: () {
+  //             Navigator.pop(context);
+  //           },
+  //           subTittle: 'Do you want to Exit?',
+  //           isTittleVisible: true,
+  //           tittle: "Are you sure?",
+  //         ),
+  //       ) ??
+  //       false;
+  // }
 
   bool checkDocumentData(
       DocumentUploadResponseModel documentUploadResponseModel) {
@@ -185,42 +192,45 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(widget.selctedName),
-        actions: [
-          // IconButton(
-          //     onPressed: () => onResetForm(), icon: const Icon(Icons.clear)),
-          IconButton(
-            onPressed: () {
-              logout();
-            },
-            icon: const Icon(Icons.logout),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: FormBuilder(
-            key: _formKey,
-            child: const Column(
-              children: [
-                DocumentTypeDropDownField(),
-                Gap(30),
-                DocumentFrontPageImagePicker(),
-                // Gap(20),
-                // DocumentBackPageImagePicker(),
-              ],
+    return PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) => onBackPressed(),
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            title: Text(widget.selctedName),
+            actions: [
+              // IconButton(
+              //     onPressed: () => onResetForm(), icon: const Icon(Icons.clear)),
+              IconButton(
+                onPressed: () {
+                  onBackPressed();
+                },
+                icon: const Icon(Icons.logout),
+              )
+            ],
+          ),
+          body: SingleChildScrollView(
+            physics: const ClampingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: FormBuilder(
+                key: _formKey,
+                child: const Column(
+                  children: [
+                    DocumentTypeDropDownField(),
+                    Gap(30),
+                    DocumentFrontPageImagePicker(),
+                    // Gap(20),
+                    // DocumentBackPageImagePicker(),
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-      bottomNavigationBar: SubmitFosBtnView(
-        submit: submit,
-      ),
-    );
+          bottomNavigationBar: SubmitFosBtnView(
+            submit: submit,
+          ),
+        ));
   }
 }

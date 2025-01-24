@@ -35,25 +35,27 @@ class DocumentUploadResponseModel {
     return DocumentUploadResponseModel(
       processId: map['processId'] as String,
       userId: map['userId'] as String,
-      data: Data.fromMap(map['data'] as Map<String,dynamic>),
+      data: Data.fromMap(map['data'] as Map<String, dynamic>),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory DocumentUploadResponseModel.fromJson(String source) => DocumentUploadResponseModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory DocumentUploadResponseModel.fromJson(String source) =>
+      DocumentUploadResponseModel.fromMap(
+          json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'DocumentUploadResponseModel(processId: $processId, userId: $userId, data: $data)';
+  String toString() =>
+      'DocumentUploadResponseModel(processId: $processId, userId: $userId, data: $data)';
 
   @override
   bool operator ==(covariant DocumentUploadResponseModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.processId == processId &&
-      other.userId == userId &&
-      other.data == data;
+
+    return other.processId == processId &&
+        other.userId == userId &&
+        other.data == data;
   }
 
   @override
@@ -150,5 +152,15 @@ class Data {
         documentNumber.hashCode ^
         issueDate.hashCode ^
         expiryDate.hashCode;
+  }
+
+  bool hasEmptyFields() {
+    return name.isEmpty ||
+        dateOfBirth.isEmpty ||
+        gender.isEmpty ||
+        documentNumber.isEmpty ||
+        issueDate.isEmpty ||
+        expiryDate.isEmpty ||
+        documentUrl.isEmpty;
   }
 }

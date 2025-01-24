@@ -7,7 +7,7 @@ class InstructionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Card(
-      elevation: 5,
+      elevation: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),

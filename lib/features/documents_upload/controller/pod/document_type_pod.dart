@@ -6,7 +6,7 @@ final documentTypesProvider =
   return [
     DocumentType(documentname: "National ID Card", docValue: "NID"),
     DocumentType(documentname: "Passport", docValue: "PRT"),
-    DocumentType(documentname: "Residence Permit", docValue: "RPT"),
+    // DocumentType(documentname: "Residence Permit", docValue: "RPT"),
     //DocumentType(documentname: "Driving License", docValue: "LIC")
   ];
 });

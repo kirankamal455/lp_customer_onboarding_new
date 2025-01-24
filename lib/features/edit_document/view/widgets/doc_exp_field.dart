@@ -51,10 +51,10 @@ class DocExpirationField extends StatelessWidget {
                 ),
               ),
             ),
-            EditButton(
-              buttonType: 'docexpdate',
-              data: docExp,
-            ),
+            // EditButton(
+            //   buttonType: 'docexpdate',
+            //   data: docExp,
+            // ),
           ],
         );
       },

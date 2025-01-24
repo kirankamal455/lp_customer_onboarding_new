@@ -46,10 +46,10 @@ class IssueDateField extends StatelessWidget {
                 ),
               ),
             ),
-            EditButton(
-              data: issueDate,
-              buttonType: 'issuesdate',
-            ),
+            // EditButton(
+            //   data: issueDate,
+            //   buttonType: 'issuesdate',
+            // ),
           ],
         );
       },

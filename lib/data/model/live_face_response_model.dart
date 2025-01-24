@@ -1,25 +1,29 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 class LiveFaceResponseModel {
+  // final bool FaceMatch;
   final String Result;
   final bool Status;
   final List<Instruction> Instructions;
   LiveFaceResponseModel({
+    // required this.FaceMatch,
     required this.Result,
     required this.Status,
     required this.Instructions,
   });
 
   LiveFaceResponseModel copyWith({
+    bool? FaceMatch,
     String? Result,
     bool? Status,
     List<Instruction>? Instructions,
   }) {
     return LiveFaceResponseModel(
+      // FaceMatch: FaceMatch ?? this.FaceMatch,
       Result: Result ?? this.Result,
       Status: Status ?? this.Status,
       Instructions: Instructions ?? this.Instructions,
@@ -28,6 +32,7 @@ class LiveFaceResponseModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      // 'FaceMatch': FaceMatch,
       'Result': Result,
       'Status': Status,
       'Instructions': Instructions.map((x) => x.toMap()).toList(),
@@ -36,6 +41,7 @@ class LiveFaceResponseModel {
 
   factory LiveFaceResponseModel.fromMap(Map<String, dynamic> map) {
     return LiveFaceResponseModel(
+      // FaceMatch: map['FaceMatch'] as bool,
       Result: map['Result'] as String,
       Status: map['Status'] as bool,
       Instructions: List<Instruction>.from(
@@ -53,21 +59,31 @@ class LiveFaceResponseModel {
           json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() =>
-      'LiveFaceResponseModel(Result: $Result, Status: $Status, Instructions: $Instructions)';
+  String toString() {
+    return 'LiveFaceResponseModel(  Result: $Result, Status: $Status, Instructions: $Instructions)';
+  }
 
   @override
   bool operator ==(covariant LiveFaceResponseModel other) {
     if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return other.Result == Result &&
-        other.Status == Status &&
-        listEquals(other.Instructions, Instructions);
+    return
+
+        //other.FaceMatch == FaceMatch &&
+
+        other.Result == Result &&
+            other.Status == Status &&
+            listEquals(other.Instructions, Instructions);
   }
 
   @override
-  int get hashCode => Result.hashCode ^ Status.hashCode ^ Instructions.hashCode;
+  int get hashCode {
+    return
+
+        //FaceMatch.hashCode ^
+        Result.hashCode ^ Status.hashCode ^ Instructions.hashCode;
+  }
 }
 
 class Instruction {

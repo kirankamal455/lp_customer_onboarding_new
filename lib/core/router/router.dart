@@ -17,7 +17,7 @@ class AppRouter extends $AppRouter {
       page: HomeRoute.page,
       // path: '/home',
       path: '/home',
-
+      maintainState: false,
       // guards: [SplashGuard(iUserDbService: iUserDbService)]
     ),
     AutoRoute(

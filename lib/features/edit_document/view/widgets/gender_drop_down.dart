@@ -55,10 +55,10 @@ class GenderDropDownField extends StatelessWidget {
                 ),
               ),
             ),
-            EditButton(
-              buttonType: 'Gender',
-              data: gender,
-            ),
+            // EditButton(
+            //   buttonType: 'Gender',
+            //   data: gender,
+            // ),
           ],
         );
       },

@@ -64,10 +64,10 @@ class NameField extends StatelessWidget {
                 ]),
               ),
             ),
-            EditButton(
-              buttonType: 'customerName',
-              data: name,
-            ),
+            // EditButton(
+            //   buttonType: 'customerName',
+            //   data: name,
+            // ),
           ],
         );
       },

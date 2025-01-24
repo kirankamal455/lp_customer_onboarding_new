@@ -53,10 +53,10 @@ class DobField extends StatelessWidget {
                 ]),
               ),
             ),
-            EditButton(
-              data: dob,
-              buttonType: 'dob',
-            ),
+            // EditButton(
+            //   data: dob,
+            //   buttonType: 'dob',
+            // ),
           ],
         );
       },

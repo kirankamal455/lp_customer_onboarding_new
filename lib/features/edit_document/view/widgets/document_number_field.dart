@@ -34,7 +34,7 @@ class DocumentNumberField extends StatelessWidget {
                         ? true
                         : false,
                 decoration: InputDecoration(
-                 fillColor: documentNumber.isEmpty
+                  fillColor: documentNumber.isEmpty
                       ? const Color.fromARGB(255, 239, 209, 207)
                       : Colors.grey.shade200,
                   labelText: "Document Number",
@@ -59,10 +59,10 @@ class DocumentNumberField extends StatelessWidget {
                 ]),
               ),
             ),
-            EditButton(
-              buttonType: 'documentNumber',
-              data: documentNumber,
-            ),
+            // EditButton(
+            //   buttonType: 'documentNumber',
+            //   data: documentNumber,
+            // ),
           ],
         );
       },

@@ -287,6 +287,7 @@ class LoginRepository implements ILoginRepository {
       required String processId,
       required String videoPath,
       CancelToken? cancelToken,
+      required   String documentImageUrl,
       void Function(int p1, int p2)? onSendProgress}) async {
     final response = await loginProvider.uploadFacelivenessVideo(
         // randomText: randomText,
@@ -295,7 +296,7 @@ class LoginRepository implements ILoginRepository {
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         instructionsList: instructionsList,
-        processId: processId);
+        processId: processId, documentImageUrl: '');
 
     if (response.statusCode == 200) {
       if (kDebugMode) {
