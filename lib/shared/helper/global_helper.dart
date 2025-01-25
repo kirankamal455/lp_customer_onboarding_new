@@ -319,7 +319,7 @@ mixin GlobalHelper<T extends StatefulWidget> on State<T> {
                           textAlign: TextAlign.center),
                       const SizedBox(height: 40),
                       SizedBox(
-                        width: 70,
+                        width: context.screenWidth * 0.2,
                         child: ElevatedButton(
                           style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.all<Color>(
