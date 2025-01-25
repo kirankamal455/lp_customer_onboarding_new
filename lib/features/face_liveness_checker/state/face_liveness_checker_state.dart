@@ -22,6 +22,12 @@ class FacelivenessCheckerErrorState extends FaceLivenessCheckerState {
   FacelivenessCheckerErrorState(this.faceLivenessErrors);
 }
 
+class FacelivenessCamaraExceptionState extends FaceLivenessCheckerState {
+  final String camaraException;
+
+  FacelivenessCamaraExceptionState(this.camaraException);
+}
+
 class FacelivenessCheckerFaildState extends FaceLivenessCheckerState {
   final LiveFaceResponseModel liveFaceResponseModel;
   FacelivenessCheckerFaildState(this.liveFaceResponseModel);

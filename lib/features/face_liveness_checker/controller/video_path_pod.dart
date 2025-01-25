@@ -37,22 +37,26 @@ final cameraControllerPod =
       (camera) => camera.lensDirection == CameraLensDirection.front,
     );
 
-    controller = CameraController(frontCamera, ResolutionPreset.low);
+    controller = CameraController(
+      frontCamera,
+      ResolutionPreset.low,
+    );
 
-    // Initialize the camera controller
     await controller.initialize();
 
-    // Return the controller once initialized
     ref.onDispose(() async {
-      // Dispose of the camera controller when the provider is disposed
+      if (controller != null) {
+        // if (controller.value.isRecordingVideo) {
+        await controller.stopVideoRecording();
+        // }
+      }
+
       await controller?.dispose();
     });
 
     return controller;
   } catch (e) {
-    // If initialization fails, handle the error
-    print("Error initializing camera: $e");
-    return null;
+    rethrow;
   }
 });
 
@@ -85,23 +89,58 @@ final timerPod = StateProvider.autoDispose<Timer?>((ref) {
 
 /// The stream provider that emits the countdown every second.
 
-final timerStreamProvider = StreamProvider.autoDispose<int>(
-  (ref) {
-    final streamController = StreamController<int>();
-    final subscription =
+// final timerStreamProvider = StreamProvider.autoDispose<int>(
+//   (ref) {
+//     final streamController = StreamController<int>();
+//     final subscription =
+//         Stream.periodic(const Duration(seconds: 1), (count) => count)
+//             .listen((elapsedTime) {
+//       streamController.add(elapsedTime);
+//     });
+
+//     ref.onCancel(() async {
+//       await subscription.cancel();
+//       await streamController.close();
+//     });
+//     ref.onDispose(() async {
+//       await subscription.cancel();
+//       await streamController.close();
+//     });
+//     return streamController.stream;
+//   },
+//   name: 'timerProvider',
+// );
+
+class TimerStreamNotifier extends AutoDisposeStreamNotifier<int> {
+  late final StreamController<int> _streamController;
+  late final StreamSubscription<int> _subscription;
+
+  @override
+  Stream<int> build() {
+    _streamController = StreamController<int>();
+    _subscription =
         Stream.periodic(const Duration(seconds: 1), (count) => count)
             .listen((elapsedTime) {
-      streamController.add(elapsedTime);
+      _streamController.add(elapsedTime);
     });
-    ref.onCancel(() async {
-      await subscription.cancel();
-      await streamController.close();
-    });
-    ref.onDispose(() async {
-      await subscription.cancel();
-      await streamController.close();
-    });
-    return streamController.stream;
-  },
-  name: 'timerProvider',
-);
+
+    return _streamController.stream;
+  }
+
+  // ref.onCancel(() async {
+  //   await subscription.cancel();
+  //   await streamController.close();
+  // });
+  // ref.onDispose(() async {
+  //   await subscription.cancel();
+  //   await streamController.close();
+  // });
+  Future<void> close() async {
+    await _subscription.cancel();
+    await _streamController.close();
+  }
+}
+
+final timerStreamNotifierProvider =
+    AutoDisposeStreamNotifierProvider<TimerStreamNotifier, int>(
+        TimerStreamNotifier.new);

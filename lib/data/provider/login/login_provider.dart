@@ -294,7 +294,9 @@ class LoginProvider implements ILoginProvider {
     });
     print("Instruction is $instructionsList");
     return await dio.post(
-      '${AppURLs.facelivenesApiBaseUrl}FaceLiveDetection/VideoUpload?ProcessId=$processId&ImageUrl=$documentImageUrl',
+      '${AppURLs.facelivenesApiBaseUrl}FaceLiveDetection/VideoUpload?ProcessId=$processId',
+
+      //&ImageUrl=$documentImageUrl',
       options: Options(headers: headers),
       data: data,
       onSendProgress: onSendProgress,

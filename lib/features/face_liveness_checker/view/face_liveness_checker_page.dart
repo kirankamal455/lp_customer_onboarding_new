@@ -13,6 +13,7 @@ import 'package:lp_customer_onboarding/features/face_liveness_checker/controller
 import 'package:lp_customer_onboarding/features/face_liveness_checker/controller/notifier/faceliveness_checker_notifier.dart';
 import 'package:lp_customer_onboarding/features/face_liveness_checker/controller/video_path_pod.dart';
 import 'package:lp_customer_onboarding/features/face_liveness_checker/state/face_liveness_checker_state.dart';
+import 'package:lp_customer_onboarding/features/face_liveness_checker/view/ui_state/face_liveness_camara_exception.dart';
 import 'package:lp_customer_onboarding/features/face_liveness_checker/view/ui_state/face_liveness_init_success.dart';
 import 'package:lp_customer_onboarding/features/face_liveness_checker/view/ui_state/face_verify_error.dart';
 import 'package:lp_customer_onboarding/features/face_liveness_checker/view/ui_state/face_liveness_error.dart';
@@ -98,6 +99,8 @@ class _FaceLivenessCheckerPageState extends State<FaceLivenessCheckerPage> {
                               FaceVerifyError(
                                 faceLivenessArg: widget.faceLivenessArg,
                               ),
+                            FacelivenessCamaraExceptionState() =>
+                              const FaceLivenessCamaraPermissionDenied(),
                           };
                         },
                         error: (error, stackTrace) => Text(error.toString()),
