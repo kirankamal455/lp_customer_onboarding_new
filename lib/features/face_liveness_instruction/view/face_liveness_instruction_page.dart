@@ -61,7 +61,7 @@ class FaceLivenessInstructionPage extends StatelessWidget {
                   ),
                 );
               },
-            ),
+            ),const Gap(20),
           ],
         ),
       ),

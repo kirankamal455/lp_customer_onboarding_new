@@ -23,7 +23,7 @@ class UpdateDocumentBtnView extends ConsumerWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, top: 7, bottom: 5),
+        padding: const EdgeInsets.only(right: 20, left: 20, top: 7, bottom: 25),
         child: updateDocumnetAsyncState.when(
           data: (data) {
             return switch (data) {

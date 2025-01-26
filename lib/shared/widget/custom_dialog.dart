@@ -45,7 +45,7 @@ class CustomDialog extends StatelessWidget {
               ),
             ).p(8),
           ].vStack().p(18),
-
+          const Spacer(),
           [
             Consumer(
               builder: (context, ref, child) {
@@ -96,8 +96,8 @@ class CustomDialog extends StatelessWidget {
             left: 30,
             right: 30,
           )
-          .h(148),
-      // .h(context.screenWidth * 0.41),
+          //.h(170),
+          .h(context.screenWidth * 0.38),
     );
   }
 }
