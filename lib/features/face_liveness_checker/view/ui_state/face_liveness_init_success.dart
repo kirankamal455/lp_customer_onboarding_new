@@ -49,15 +49,24 @@ class FaceLivenessIntitSuccess extends StatelessWidget {
               Consumer(
                 builder: (_, WidgetRef cref, __) {
                   var currentInstruction = cref.watch(currentInstructionPod);
-                  return Text(
-                    currentInstruction,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  );
+                  return currentInstruction.isNotEmpty
+                      ? Card(
+                          elevation: 0.3,
+                          color: Colors.transparent,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              currentInstruction,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        )
+                      : const SizedBox.shrink();
                 },
               ),
               const SizedBox(height: 20),

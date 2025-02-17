@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -61,7 +63,8 @@ class FaceLivenessInstructionPage extends StatelessWidget {
                   ),
                 );
               },
-            ),const Gap(20),
+            ),
+            Platform.isIOS ? const Gap(20) : const SizedBox.shrink(),
           ],
         ),
       ),

@@ -45,7 +45,7 @@ class _AppState extends ConsumerState<App> with GlobalHelper {
       builder: (context, child) {
         if (mounted) {
           child = ResponsiveBreakpoints.builder(
-            child: BouncingScrollWrapper.builder(context, child!),
+            child: child!,
             breakpoints: [
               const Breakpoint(start: 0, end: 450, name: MOBILE),
               const Breakpoint(start: 451, end: 800, name: TABLET),

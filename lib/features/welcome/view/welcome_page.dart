@@ -90,99 +90,99 @@ class _WelcomePageState extends State<WelcomePage> with GlobalHelper {
           SizedBox(
             height: context.screenHeight * 0.12,
           ),
-          Consumer(
-            builder: (context, cref, child) {
-              final getCustomerOnboardingMode =
-                  cref.watch(customeOnboardingModePod);
-              return getCustomerOnboardingMode.when(
-                data: (selectedMode) => Column(
-                  children: [
-                    Consumer(builder: (_, WidgetRef ref, __) {
-                      final mode =
-                          ref.watch(isDebugModeCheckerPod(selectedMode));
-                      return SizedBox(
-                        width: 265,
-                        height: 40,
-                        child: ActionButton(
-                          onPressed: () async {
-                            ref.read(autorouterProvider).navigate(
-                                  SendOtpRoute(
-                                      isCustomerRevalidation: true,
-                                      isNormalMode: selectedMode
+          // Consumer(
+          //   builder: (context, cref, child) {
+          //     final getCustomerOnboardingMode =
+          //         cref.watch(customeOnboardingModePod);
+          //     return getCustomerOnboardingMode.when(
+          //       data: (selectedMode) =>
 
-                                      //  kDebugMode
-                                      //     ? isReleaseMode
-                                      //     : selectedMode,
-                                      //isNormalMode: isNormalMode,
-                                      ),
-                                );
-                          },
-                          buttonText: l10n?.welcome_existing_customer,
-                          buttonEnabled: true,
-                          isLogin: 'Login',
-                        ),
-                      );
-                    }),
-                    10.heightBox,
-                    Consumer(
-                      builder: (_, WidgetRef ref, __) {
-                        return SizedBox(
-                          width: 265,
-                          height: 40,
-                          child: ActionButton(
-                            onPressed: () async {
-                              ref.read(autorouterProvider).navigate(
-                                    SendOtpRoute(
-                                        isCustomerRevalidation: false,
-                                        isNormalMode: selectedMode
+          Column(
+            children: [
+              Consumer(builder: (_, WidgetRef ref, __) {
+                final mode = ref.watch(isDebugModeCheckerPod(true));
+                return SizedBox(
+                  width: 265,
+                  height: 40,
+                  child: ActionButton(
+                    onPressed: () async {
+                      ref.read(autorouterProvider).navigate(
+                            SendOtpRoute(
+                                isCustomerRevalidation: true, isNormalMode: true
 
-                                        //  kDebugMode
-                                        //     ? isReleaseMode
-                                        //     : selectedMode,
-                                        ),
-                                  );
-                            },
-                            buttonText: l10n?.welcome_new_customer,
-                            buttonEnabled: true,
-                            isLogin: 'Login',
-                          ),
-                        );
+                                //  kDebugMode
+                                //     ? isReleaseMode
+                                //     : selectedMode,
+                                //isNormalMode: isNormalMode,
+                                ),
+                          );
+                    },
+                    buttonText: l10n?.welcome_existing_customer,
+                    buttonEnabled: true,
+                    isLogin: 'Login',
+                  ),
+                );
+              }),
+              10.heightBox,
+              Consumer(
+                builder: (_, WidgetRef ref, __) {
+                  return SizedBox(
+                    width: 265,
+                    height: 40,
+                    child: ActionButton(
+                      onPressed: () async {
+                        ref.read(autorouterProvider).navigate(
+                              SendOtpRoute(
+                                  isCustomerRevalidation: false,
+                                  isNormalMode: true
+
+                                  //  kDebugMode
+                                  //     ? isReleaseMode
+                                  //     : selectedMode,
+                                  ),
+                            );
                       },
+                      buttonText: l10n?.welcome_new_customer,
+                      buttonEnabled: true,
+                      isLogin: 'Login',
                     ),
-                  ],
-                ),
-                error: (error, stackTrace) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    "Something went wrong".text.white.make(),
-                    const SizedBox(height: 20),
-                    Consumer(
-                      builder: (_, WidgetRef ref, __) {
-                        return ElevatedButton(
-                          onPressed: () {
-                            ref.invalidate(customeOnboardingModePod);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: context.primaryColor,
-                            backgroundColor: Colors.white, // Black text color
-                          ),
-                          child: 'Retry'
-                              .text
-                              .black
-                              .make(), // Text color set to black
-                        ).w(130).h(45);
-                      },
-                    ),
-                  ],
-                ),
-                loading: () => const CircularProgressIndicator(
-                  color: Colors.white,
-                ),
-                skipLoadingOnRefresh: false,
-                skipLoadingOnReload: false,
-              );
-            },
+                  );
+                },
+              ),
+            ],
           ),
+          // error: (error, stackTrace) => Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     "Something went wrong".text.white.make(),
+          //     const SizedBox(height: 20),
+          //     Consumer(
+          //       builder: (_, WidgetRef ref, __) {
+          //         return ElevatedButton(
+          //           onPressed: () {
+          //             ref.invalidate(customeOnboardingModePod);
+          //           },
+          //           style: ElevatedButton.styleFrom(
+          //             foregroundColor: context.primaryColor,
+          //             backgroundColor: Colors.white, // Black text color
+          //           ),
+          //           child: 'Retry'
+          //               .text
+          //               .black
+          //               .make(), // Text color set to black
+          //         ).w(130).h(45);
+          //       },
+          //     ),
+          //   ],
+          // ),
+          //       loading: () => const CircularProgressIndicator(
+          //         color: Colors.white,
+          //       ),
+          //       skipLoadingOnRefresh: false,
+          //       skipLoadingOnReload: false,
+          //     );
+          //   },
+          // ),
 
           30.heightBox,
           // [

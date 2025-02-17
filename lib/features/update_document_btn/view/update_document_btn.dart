@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lp_customer_onboarding/features/submit_btn/widget/custom_fos_btn.dart';
@@ -23,7 +25,8 @@ class UpdateDocumentBtnView extends ConsumerWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, top: 7, bottom: 25),
+        padding: EdgeInsets.only(
+            right: 20, left: 20, top: 7, bottom: Platform.isIOS ? 25 : 5),
         child: updateDocumnetAsyncState.when(
           data: (data) {
             return switch (data) {

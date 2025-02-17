@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lp_customer_onboarding/features/customer_revalidation/view/ui_state/document_expire_notdata.dart';
 import 'package:lp_customer_onboarding/features/submit_btn/controller/submit_fos_btn_notifier_pod.dart';
 import 'package:lp_customer_onboarding/features/submit_btn/state/submit_fos_btn_state.dart';
 import 'package:lp_customer_onboarding/features/submit_btn/widget/custom_fos_btn.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class SubmitFosBtnView extends ConsumerWidget {
   final Function() submit;
@@ -22,7 +26,8 @@ class SubmitFosBtnView extends ConsumerWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, top: 7, bottom: 25),
+        padding: EdgeInsets.only(
+            right: 20, left: 20, top: 7, bottom: Platform.isIOS ? 25 : 5),
         child: submitState.when(
           data: (data) {
             return switch (data) {

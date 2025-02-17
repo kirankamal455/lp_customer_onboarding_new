@@ -20,84 +20,82 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.center,
-      child: Material(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: [
-          [
-            if (isTittleVisible)
-              [
-                Text(
-                  tittle ?? "",
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                10.heightBox,
-              ].vStack(),
-            Text(
-              subTittle,
-              style: const TextStyle(
-                fontSize: 13,
-              ),
-            ).p(8),
-          ].vStack().p(18),
-          const Spacer(),
-          [
-            Consumer(
-              builder: (context, ref, child) {
-                return Container(
-                  height: 45,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
+        alignment: Alignment.center,
+        child: Material(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: [
+            [
+              if (isTittleVisible)
+                [
+                  Text(
+                    tittle ?? "",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: "No".text.make().centered(),
-                )
-                    .box
-                    .withDecoration(
-                      BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: Colors.grey.shade300,
-                            width: 1,
+                  10.heightBox,
+                ].vStack(),
+              Text(
+                subTittle,
+                style: const TextStyle(
+                  fontSize: 13,
+                ),
+              ).p(8),
+            ].vStack().p(18),
+            const Spacer(),
+            [
+              Consumer(
+                builder: (context, ref, child) {
+                  return Container(
+                    height: 45,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                      ),
+                    ),
+                    child: "No".text.make().centered(),
+                  )
+                      .box
+                      .withDecoration(
+                        BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: Colors.grey.shade300,
+                              width: 1,
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                    .make()
-                    .onTap(
-                      () => onTapNoBtn(),
-                    )
-                    .expand();
-              },
-            ),
-            Container(
-              height: 47,
-              decoration: BoxDecoration(
-                color: context.primaryColor,
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(10),
-                ),
+                      )
+                      .make()
+                      .onTap(
+                        () => onTapNoBtn(),
+                      )
+                      .expand();
+                },
               ),
-              child: "Yes".text.color(Colors.white).make().centered(),
-            ).onTap(() => onTapYesBtn()).expand()
-          ].hStack(alignment: MainAxisAlignment.spaceBetween),
+              Container(
+                height: 47,
+                decoration: BoxDecoration(
+                  color: context.primaryColor,
+                  borderRadius: const BorderRadius.only(
+                    bottomRight: Radius.circular(10),
+                  ),
+                ),
+                child: "Yes".text.color(Colors.white).make().centered(),
+              ).onTap(() => onTapYesBtn()).expand()
+            ].hStack(alignment: MainAxisAlignment.spaceBetween),
 
-          // )
-        ].vStack(),
-      )
-          .pOnly(
-            top: 1,
-            left: 30,
-            right: 30,
-          )
-          //.h(170),
-          .h(context.screenWidth * 0.38),
-    );
+            // )
+          ].vStack(),
+        )
+            .pOnly(
+              top: 1,
+              left: 30,
+              right: 30,
+            )
+            .h(170));
   }
 }

@@ -132,11 +132,13 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
               showInfoSnack(text: "Token has expired; please login again.");
             },
           );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please Fill the form.')),
-      );
     }
+
+    // else {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('Please Fill the form.')),
+    //   );
+    // }
   }
 
   void onResetForm() {
