@@ -41,9 +41,10 @@ class _EditCustomerPageState extends ConsumerState<EditDocumentPage> {
 
   void updateDocument() {
     if (widget.documentUploadResponseModel.data.hasEmptyFields()) {
-      ref
-          .read(autorouterProvider)
-          .replaceAll([HomeRoute(selctedName: "Document Upload")]);
+      ref.read(autorouterProvider).replaceAll([
+        const DocumentUploadRoute()
+        //  DocumentUploadRoute(selctedName: "Document Upload")
+      ]);
     } else {
       if (formkey.currentState!.saveAndValidate()) {
         ref.read(autorouterProvider).navigate(FaceLivenessInstructionRoute(

@@ -69,7 +69,8 @@ class DocumentExpired extends StatelessWidget {
                   onPressed: () {
                     if (isDocumentIntelligenceEnabled) {
                       ref.read(autorouterProvider).navigate(
-                            HomeRoute(selctedName: "Document Revalidate"),
+                            //  DocumentUploadRoute(selctedName: "Document Revalidate"),
+                            const DocumentUploadRoute(),
                           );
                     } else {
                       ref

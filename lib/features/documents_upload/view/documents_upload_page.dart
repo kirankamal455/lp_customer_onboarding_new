@@ -11,6 +11,7 @@ import 'package:lp_customer_onboarding/bootstrap.dart';
 import 'package:lp_customer_onboarding/core/router/router.gr.dart';
 import 'package:lp_customer_onboarding/core/router/router_pod.dart';
 import 'package:lp_customer_onboarding/data/model/document_upload_response_model.dart';
+import 'package:lp_customer_onboarding/features/documents_upload/controller/pod/form_validate_form.dart';
 import 'package:lp_customer_onboarding/features/documents_upload/view/widget/document_back_page_image_picker.dart';
 import 'package:lp_customer_onboarding/features/documents_upload/view/widget/document_front_page_image_picker.dart';
 import 'package:lp_customer_onboarding/features/documents_upload/view/widget/document_type_drop_down_field.dart';
@@ -20,38 +21,42 @@ import 'package:lp_customer_onboarding/shared/helper/global_helper.dart';
 import 'package:lp_customer_onboarding/shared/widget/custom_dialog.dart';
 
 @RoutePage()
-class HomePage extends ConsumerStatefulWidget {
-  final String selctedName;
-  const HomePage(this.selctedName, {super.key});
+class DocumentUploadPage extends ConsumerStatefulWidget {
+  const DocumentUploadPage({super.key});
 
   @override
-  ConsumerState<HomePage> createState() => _LoginPageState();
+  ConsumerState<DocumentUploadPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
+class _LoginPageState extends ConsumerState<DocumentUploadPage>
+    with GlobalHelper {
   final _formKey = GlobalKey<FormBuilderState>();
 
   void submit() {
     if (_formKey.currentState!.validate()) {
       final documentType = _formKey.currentState!.fields['DocumentType']?.value;
 
-      final imageFiles =
-          _formKey.currentState!.fields['photos']?.value as List<dynamic>;
+      final imageFile =
+          _formKey.currentState!.fields['scanned_image']?.value as String;
+      // final imageFiles =
+      //     _formKey.currentState!.fields['photos']?.value as List<dynamic>;
 
-      String formattedDate = "";
-      // if (nextFollowupDate != null) {
-      //   formattedDate = DateFormat('dd/MM/yyyy').format(nextFollowupDate);
+      // String formattedDate = "";
+      // // if (nextFollowupDate != null) {
+      // //   formattedDate = DateFormat('dd/MM/yyyy').format(nextFollowupDate);
+      // // }
+      // List<XFile> filePaths = [];
+      // for (int i = 0; i < imageFiles.length; i++) {
+      //   filePaths.add(imageFiles[i] as XFile);
       // }
-      List<XFile> filePaths = [];
-      for (int i = 0; i < imageFiles.length; i++) {
-        filePaths.add(imageFiles[i] as XFile);
-      }
-      talker.info("Image Files: ${filePaths.first.path}");
+      // talker.info("Image Files: ${filePaths.first.path}");
 
       ref.read(submitFosAsyncNotifierPod.notifier).submitDocument(
             documentType: documentType,
 
-            filePath: filePaths.first,
+            filePath: XFile(imageFile),
+
+            // filePaths.first,
             // filePaths: filePaths
             //     .map(
             //       (e) => e.path,
@@ -198,9 +203,14 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
         canPop: false,
         onPopInvokedWithResult: (didPop, result) => onBackPressed(),
         child: Scaffold(
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Text(widget.selctedName),
+            // centerTitle: true,
+            //backgroundColor: Colors.white,
+            title: const Text(
+              "Document Upload",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
             actions: [
               // IconButton(
               //     onPressed: () => onResetForm(), icon: const Icon(Icons.clear)),
@@ -215,7 +225,7 @@ class _LoginPageState extends ConsumerState<HomePage> with GlobalHelper {
           body: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(18.0),
               child: FormBuilder(
                 key: _formKey,
                 child: const Column(

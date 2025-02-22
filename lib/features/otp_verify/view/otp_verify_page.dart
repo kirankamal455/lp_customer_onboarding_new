@@ -125,9 +125,10 @@ class _LoginOtpPageState extends ConsumerState<OtpVerifyPage>
           const CustomerRevalidationRoute(),
         ]);
       } else {
-        ref
-            .read(autorouterProvider)
-            .replaceAll([HomeRoute(selctedName: "Document Upload")]);
+        ref.read(autorouterProvider).replaceAll([
+          //   DocumentUploadRoute(selctedName: "Document Upload")
+          const DocumentUploadRoute()
+        ]);
       }
     }
   }

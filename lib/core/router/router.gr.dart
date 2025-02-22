@@ -20,13 +20,13 @@ import 'package:lp_customer_onboarding/features/customer_revalidation/view/custo
 import 'package:lp_customer_onboarding/features/docs_corner/view/docs_corner_page.dart'
     as _i3;
 import 'package:lp_customer_onboarding/features/documents_upload/view/documents_upload_page.dart'
-    as _i8;
+    as _i4;
 import 'package:lp_customer_onboarding/features/edit_document/view/edit_document.dart'
-    as _i5;
-import 'package:lp_customer_onboarding/features/face_liveness_checker/view/face_liveness_checker_page.dart'
     as _i6;
-import 'package:lp_customer_onboarding/features/face_liveness_instruction/view/face_liveness_instruction_page.dart'
+import 'package:lp_customer_onboarding/features/face_liveness_checker/view/face_liveness_checker_page.dart'
     as _i7;
+import 'package:lp_customer_onboarding/features/face_liveness_instruction/view/face_liveness_instruction_page.dart'
+    as _i8;
 import 'package:lp_customer_onboarding/features/otp_verify/view/otp_verify_page.dart'
     as _i9;
 import 'package:lp_customer_onboarding/features/registration_address_page/view/registration_address_page.dart'
@@ -34,7 +34,7 @@ import 'package:lp_customer_onboarding/features/registration_address_page/view/r
 import 'package:lp_customer_onboarding/features/registration_doc_select_page/view/doc_select_page.dart'
     as _i2;
 import 'package:lp_customer_onboarding/features/registration_ekyc_onboarding/view/ekyc_onboarding_page.dart'
-    as _i4;
+    as _i5;
 import 'package:lp_customer_onboarding/features/registration_name_page/view/registration_name_page.dart'
     as _i11;
 import 'package:lp_customer_onboarding/features/registration_submit_kyc_page/view/registration_submit_kyc_page.dart'
@@ -71,17 +71,23 @@ abstract class $AppRouter extends _i17.RootStackRouter {
         child: const _i3.DocsCornerPage(),
       );
     },
+    DocumentUploadRoute.name: (routeData) {
+      return _i17.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.DocumentUploadPage(),
+      );
+    },
     EKYCOnboardingRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.EKYCOnboardingPage(),
+        child: const _i5.EKYCOnboardingPage(),
       );
     },
     EditDocumentRoute.name: (routeData) {
       final args = routeData.argsAs<EditDocumentRouteArgs>();
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i5.EditDocumentPage(
+        child: _i6.EditDocumentPage(
           documentUploadResponseModel: args.documentUploadResponseModel,
           key: args.key,
         ),
@@ -91,7 +97,7 @@ abstract class $AppRouter extends _i17.RootStackRouter {
       final args = routeData.argsAs<FaceLivenessCheckerRouteArgs>();
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.FaceLivenessCheckerPage(
+        child: _i7.FaceLivenessCheckerPage(
           key: args.key,
           faceLivenessArg: args.faceLivenessArg,
         ),
@@ -101,19 +107,9 @@ abstract class $AppRouter extends _i17.RootStackRouter {
       final args = routeData.argsAs<FaceLivenessInstructionRouteArgs>();
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.FaceLivenessInstructionPage(
+        child: _i8.FaceLivenessInstructionPage(
           key: args.key,
           faceLivenessArg: args.faceLivenessArg,
-        ),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      final args = routeData.argsAs<HomeRouteArgs>();
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i8.HomePage(
-          args.selctedName,
-          key: args.key,
         ),
       );
     },
@@ -226,7 +222,21 @@ class DocsCornerRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.EKYCOnboardingPage]
+/// [_i4.DocumentUploadPage]
+class DocumentUploadRoute extends _i17.PageRouteInfo<void> {
+  const DocumentUploadRoute({List<_i17.PageRouteInfo>? children})
+      : super(
+          DocumentUploadRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DocumentUploadRoute';
+
+  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.EKYCOnboardingPage]
 class EKYCOnboardingRoute extends _i17.PageRouteInfo<void> {
   const EKYCOnboardingRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -240,7 +250,7 @@ class EKYCOnboardingRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.EditDocumentPage]
+/// [_i6.EditDocumentPage]
 class EditDocumentRoute extends _i17.PageRouteInfo<EditDocumentRouteArgs> {
   EditDocumentRoute({
     required _i18.DocumentUploadResponseModel documentUploadResponseModel,
@@ -278,7 +288,7 @@ class EditDocumentRouteArgs {
 }
 
 /// generated route for
-/// [_i6.FaceLivenessCheckerPage]
+/// [_i7.FaceLivenessCheckerPage]
 class FaceLivenessCheckerRoute
     extends _i17.PageRouteInfo<FaceLivenessCheckerRouteArgs> {
   FaceLivenessCheckerRoute({
@@ -317,7 +327,7 @@ class FaceLivenessCheckerRouteArgs {
 }
 
 /// generated route for
-/// [_i7.FaceLivenessInstructionPage]
+/// [_i8.FaceLivenessInstructionPage]
 class FaceLivenessInstructionRoute
     extends _i17.PageRouteInfo<FaceLivenessInstructionRouteArgs> {
   FaceLivenessInstructionRoute({
@@ -352,44 +362,6 @@ class FaceLivenessInstructionRouteArgs {
   @override
   String toString() {
     return 'FaceLivenessInstructionRouteArgs{key: $key, faceLivenessArg: $faceLivenessArg}';
-  }
-}
-
-/// generated route for
-/// [_i8.HomePage]
-class HomeRoute extends _i17.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({
-    required String selctedName,
-    _i19.Key? key,
-    List<_i17.PageRouteInfo>? children,
-  }) : super(
-          HomeRoute.name,
-          args: HomeRouteArgs(
-            selctedName: selctedName,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const _i17.PageInfo<HomeRouteArgs> page =
-      _i17.PageInfo<HomeRouteArgs>(name);
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({
-    required this.selctedName,
-    this.key,
-  });
-
-  final String selctedName;
-
-  final _i19.Key? key;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{selctedName: $selctedName, key: $key}';
   }
 }
 

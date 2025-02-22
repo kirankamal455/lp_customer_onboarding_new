@@ -14,10 +14,11 @@ class AppRouter extends $AppRouter {
     //     initial: true,
     //     guards: [SplashGuard(iUserDbService: iUserDbService)]),
     AutoRoute(
-      page: HomeRoute.page,
+      page: DocumentUploadRoute.page,
       // path: '/home',
-      path: '/home',
+      path: '/DocumentUploadRoute',
       maintainState: false,
+      initial: true,
       // guards: [SplashGuard(iUserDbService: iUserDbService)]
     ),
     AutoRoute(
@@ -41,7 +42,6 @@ class AppRouter extends $AppRouter {
       page: WelcomeRoute.page,
       path: '/WelcomeRoute',
       maintainState: false,
-      initial: true,
     ),
     AutoRoute(
       page: SendOtpRoute.page,
