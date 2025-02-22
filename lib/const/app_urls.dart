@@ -1,13 +1,13 @@
 class AppURLs {
   AppURLs._();
   //static const String baseUrl = "https://api.usercreation.dokyc.com/";
-  static const String baseUrl =
-      "https://lp-customer-onboarding.uat-lplusltd.com/";
-  // static const String baseUrl = "https://api.usercreation.dokyc.com/";
-  // static const String facelivenesApiBaseUrl =
-  //     "https://pyapi.usercreation.dokyc.com/";
+  //static const String baseUrl =
+     // "https://lp-customer-onboarding.uat-lplusltd.com/";
+ static const String baseUrl = "https://api.usercreation.dokyc.com/";
   static const String facelivenesApiBaseUrl =
-      "https://api.faceonlive.dev-lplusltd.com/";
+      "https://pyapi.usercreation.dokyc.com/";
+  // static const String facelivenesApiBaseUrl =
+  //     "https://api.faceonlive.dev-lplusltd.com/";
   static const String processDocument = "/auto/validate-doc";
 
   static const updateDocument = "auto/update-user-input";

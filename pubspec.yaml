@@ -1,8 +1,11 @@
 name: lp_customer_onboarding
 description: "A new Flutter project."
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+ 
+#flutter version : 3.24.3 
+#Dart sdk version : 3.5.3
+#jdk version : 18.0.2.1
+
+publish_to: 'none' 
 
 version: 1.0.0+1
 
